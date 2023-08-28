@@ -1,7 +1,15 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
-  return <div style={{ fontSize: 50 }}>Header</div>;
+  return (
+    <>
+      <div>
+        {" "}
+        <Navbar />{" "}
+      </div>
+    </>
+  );
 }
 
 export default App;
