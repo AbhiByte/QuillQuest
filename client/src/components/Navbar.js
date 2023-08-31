@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            Navbar
+          <Link className="navbar-brand fs-1 fst-italic" to="/">
+            QuillQuest
           </Link>
           <button
             className="navbar-toggler"
@@ -25,19 +25,8 @@ export default function Navbar() {
               <Link className="nav-link active" aria-current="page" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/">
-                Features
-              </Link>
-              <Link className="nav-link" to="/">
-                Pricing
-              </Link>
-              <Link
-                className="nav-link disabled"
-                to="/"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                Disabled
+              <Link className="nav-link" to="/login">
+                Login
               </Link>
             </div>
           </div>
