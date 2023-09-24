@@ -1,0 +1,30 @@
+[
+  {
+    "CategoryName": "NonFiction",
+    "name": "Skunk Works",
+    "author": "Ben Rich",
+    "img": "<>",
+    "goodreads": "<>"
+  },
+  {
+    "CategoryName": "NonFiction",
+    "name": "Meditations",
+    "author": "Marcus Aurelius",
+    "img": "<>",
+    "goodreads": "<>"
+  },
+  {
+    "CategoryName": "Fiction",
+    "name": "The Count of Monte Cristo",
+    "author": "",
+    "img": "",
+    "goodreads": ""
+  },
+  {
+    "CategoryName": "Fiction",
+    "name": "The Martian",
+    "author": "",
+    "img": "",
+    "goodreads": ""
+  }
+]
