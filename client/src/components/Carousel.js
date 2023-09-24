@@ -7,6 +7,7 @@ export default function Carousel() {
         id="carouselExampleCaptions"
         className="carousel slide"
         data-bs-ride="carousel"
+        style={{ objectFit: "contain !important" }}
       >
         <div className="carousel-indicators">
           <button
@@ -30,7 +31,7 @@ export default function Carousel() {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner">
+        <div className="carousel-inner" id="carousel">
           <div className="carousel-item active">
             <img
               src="https://source.unsplash.com/random/900x700/?books"
