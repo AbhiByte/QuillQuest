@@ -12,7 +12,7 @@ export default function SignUp() {
     e.preventDefault();
     const response = await fetch("http://localhost:4000/api/createuser", {
       method: "POST",
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
