@@ -32,27 +32,38 @@ router.post(
   }
 );
 
-router.post("/loginuser", async (req, res) => {
-  let email = req.body.email;
-  try {
-    let userdata = await User.findOne(email);
-    if (!userdata) {
-      return res.status(400).json({
-        errors:
-          "Your email or password is incorrect or doesn't exist in our database",
-      });
+router.post(
+  "/loginuser",
+  [
+    body("email").isEmail(),
+    body("password", "password too short!").isLength({ min: 5 }),
+  ],
+  async (req, res) => {
+    let email = req.body.email;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-    if (!req.body.password === userdata.password) {
-      return res.status(400).json({
-        errors:
-          "Your email or password is incorrect or doesn't exist in our database",
-      });
+    try {
+      let userdata = await User.findOne({ email: email });
+      if (!userdata) {
+        return res.status(400).json({
+          errors:
+            "Your email or password is incorrect or doesn't exist in our database",
+        });
+      }
+      if (req.body.password !== userdata.password) {
+        return res.status(400).json({
+          errors:
+            "Your email or password is incorrect or doesn't exist in our database",
+        });
+      }
+      return res.json({ success: true });
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false });
     }
-    return res.json(400).json({ success: true });
-  } catch (error) {
-    console.log(error);
-    res.json({ success: false });
   }
-});
+);
 
 module.exports = router;
