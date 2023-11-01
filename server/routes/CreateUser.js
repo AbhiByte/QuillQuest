@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
-
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 router.post(
@@ -57,7 +57,12 @@ router.post(
             "Your email or password is incorrect or doesn't exist in our database",
         });
       }
-      if (req.body.password !== userdata.password) {
+
+      const pwdCompare = await bcrypt.compare(
+        req.body.password,
+        userdata.password
+      );
+      if (!pwdCompare) {
         return res.status(400).json({
           errors:
             "Your email or password is incorrect or doesn't exist in our database",
